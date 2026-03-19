@@ -4,7 +4,10 @@ import {
   ArrowUpRight,
   BriefcaseBusiness,
   Code2,
+  Facebook,
+  Github,
   GraduationCap,
+  Instagram,
   Languages,
   Mail,
   MapPin,
@@ -288,7 +291,7 @@ function App() {
           <div>
             <p className="eyebrow">{t('footer.eyebrow')}</p>
             <h2>{t('footer.title')}</h2>
-            <p className="footer-copy">{t('footer.description')}</p>
+            <p style={{margintop: 100 + 'rem'}} className="footer-copy">{t('footer.description')}</p>
           </div>
 
           <div className="contact-panel">
@@ -296,9 +299,17 @@ function App() {
               <Mail size={16} />
               marcobertolo2005@outlook.pt
             </a>
-            <a href="tel:+351914136321">
-              <Phone size={16} />
-              +351 914 136 321
+            <a href="https://www.instagram.com/marco._bertolo_05/">
+              <Instagram size={16} />
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100010367228371">
+              <Facebook size={16} />
+              Facebook
+            </a>
+            <a href="https://github.com/MGTEDITS">
+              <Github size={16} />
+              Github
             </a>
             <a
               href="https://www.linkedin.com/in/marco-b%C3%A9rtolo-6831b4340/"
