@@ -1,0 +1,166 @@
+{
+  "nav": {
+    "about": "Perfil",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "contact": "Contacto",
+    "language": "Idioma"
+  },
+  "hero": {
+    "title": "Marco Bértolo",
+    "subtitle": "Programador Full-Stack em crescimento",
+    "eyebrow": "Portfolio Pessoal",
+    "description": "Estudante de Engenharia Informática com experiência prática em ambiente empresarial, desenvolvimento Web, Mobile e API REST, focado em construir produtos sólidos, úteis e bem estruturados.",
+    "location": "Lisboa, Portugal",
+    "educationBadge": "Licenciatura em Engenharia Informática",
+    "availability": "À procura de oportunidade para evoluir",
+    "ctaPrimary": "Falar por email",
+    "ctaSecondary": "Ver LinkedIn",
+    "panelKicker": "Sinal rápido",
+    "focusTitle": "Áreas onde quero gerar mais impacto",
+    "focusList": [
+      "Aplicações full-stack com arquitetura clara",
+      "APIs REST, dados e integrações práticas",
+      "Produtos Web e Mobile com foco em utilização real"
+    ],
+    "metrics": [
+      { "value": "2023", "label": "Licenciatura em curso" },
+      { "value": "2022", "label": "Primeiros projetos profissionais" },
+      { "value": "6+", "label": "Linguagens e stacks dominadas" },
+      { "value": "2", "label": "Projetos de destaque no CV" }
+    ]
+  },
+  "profile": {
+    "eyebrow": "Quem sou",
+    "title": "Base técnica, vontade de crescer e experiência real de execução.",
+    "intro": "O meu percurso cruza formação técnica, trabalho em equipa e desenvolvimento de soluções digitais em contexto profissional.",
+    "body": "Tenho experiência prática em desenvolvimento Web, Mobile e Backoffice, suporte técnico e manutenção. Procuro um contexto onde possa continuar a evoluir enquanto termino a licenciatura, contribuindo com disciplina, capacidade de adaptação e foco em boas práticas de engenharia.",
+    "highlights": [
+      {
+        "title": "Mentalidade full-stack",
+        "description": "Trabalho com frontend, backend, bases de dados e integração entre serviços sem perder a visão global do produto."
+      },
+      {
+        "title": "Contexto empresarial real",
+        "description": "Já atuei em ambientes dinâmicos e com responsabilidade operacional, o que trouxe rigor, autonomia e capacidade de resposta."
+      },
+      {
+        "title": "Perfil orientado à evolução",
+        "description": "Estou numa fase de crescimento acelerado, com foco em consolidar fundamentos e transformar aprendizagem em entrega consistente."
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Percurso",
+    "title": "Experiência profissional",
+    "note": "Uma combinação entre desenvolvimento, suporte técnico e trabalho operacional que reforçou responsabilidade, comunicação e execução sob ritmo real.",
+    "items": [
+      {
+        "period": "06/2025 - Presente",
+        "location": "Lisboa, Portugal",
+        "title": "Funcionário em tempo parcial",
+        "company": "McDonald's - Torres Vedras",
+        "points": [
+          "Atendimento eficiente e orientado ao cliente.",
+          "Cumprimento rigoroso de normas de higiene e segurança.",
+          "Trabalho em equipa num ambiente dinâmico."
+        ]
+      },
+      {
+        "period": "05/2022 - 09/2023",
+        "location": "Lisboa, Portugal",
+        "title": "Estagiário",
+        "company": "CEA - Centro de Educacao Ambiental de Torres Vedras",
+        "points": [
+          "Desenvolvimento de solucoes Web, Mobile e Backoffice.",
+          "Suporte tecnico e manutencao de equipamentos.",
+          "Realizacao do projeto final de curso CEA Project."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Trabalho selecionado",
+    "title": "Projetos que mostram a minha direção técnica",
+    "note": "Projetos académicos e profissionais com utilidade concreta, foco em estrutura, comunicação entre módulos e organização de dados.",
+    "items": [
+      {
+        "period": "05/2025 - 06/2025",
+        "type": "Backoffice",
+        "name": "Encontra Saude",
+        "description": "Backoffice para gestao de unidades hospitalares, desenhado para centralizar informacao critica e tornar a operacao mais eficiente.",
+        "points": [
+          "Gestao de instituicoes, contactos e geolocalizacao.",
+          "Modulos de comunicacao entre pacientes e instituicoes.",
+          "Foco em eficiencia operacional e centralizacao de dados."
+        ],
+        "tech": ["Backoffice", "Dados", "Geolocalizacao", "Comunicacao"]
+      },
+      {
+        "period": "05/2022 - 09/2023",
+        "type": "Web + Mobile",
+        "name": "CEA Project",
+        "description": "Plataforma Web, Mobile e Backoffice para comunicacao institucional e aproximacao da comunidade.",
+        "points": [
+          "Modulo de blog, noticias, eventos e comunidade.",
+          "Sistema de notificacoes.",
+          "Projeto desenvolvido com React Native, Laravel, PHP, Tailwind e MySQL."
+        ],
+        "tech": ["React Native", "Laravel", "PHP", "Tailwind", "MySQL"]
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Competencias",
+    "title": "Stack e ferramentas",
+    "groups": [
+      {
+        "title": "Programacao",
+        "items": ["C#", "Java", "Python", "PHP", "JavaScript", "Node.js", "React", "Swift", "Kotlin"]
+      },
+      {
+        "title": "Bases de dados",
+        "items": ["MySQL", "SQL Server", "Firebase", "Redis", "MongoDB"]
+      },
+      {
+        "title": "Workflow tecnico",
+        "items": ["Git", "Docker", "Figma", "Postman", "Scrum", "Kanban", "Windows Server", "Ubuntu", "Debian"]
+      }
+    ]
+  },
+  "education": {
+    "eyebrow": "Formacao",
+    "title": "Formacao e certificacoes",
+    "certificatesTitle": "Certificados",
+    "items": [
+      {
+        "period": "09/2023 - Presente",
+        "degree": "Licenciatura em Engenharia Informatica",
+        "school": "ISTEC - Instituto Superior de Tecnologias Avancadas"
+      },
+      {
+        "period": "09/2019 - 06/2022",
+        "degree": "QNQ 4 Programacao e Gestao de Sistemas Informaticos",
+        "school": "ESCO - Escola de Servicos e Comercio do Oeste",
+        "details": "Delegado de turma e envolvido na gestao de projetos escolares."
+      }
+    ],
+    "certificates": [
+      {
+        "year": "12/2025",
+        "name": "Introduction to Cybersecurity",
+        "issuer": "CISCO"
+      },
+      {
+        "year": "05/2023",
+        "name": "CCNA: Introduction to Networks",
+        "issuer": "CISCO"
+      }
+    ]
+  },
+  "footer": {
+    "eyebrow": "Vamos falar",
+    "title": "Disponivel para novos desafios na area de desenvolvimento.",
+    "description": "Se estiver a recrutar para uma funcao junior, estagio profissional ou colaboracao tecnica, esta pagina ja tem o essencial. O resto podemos discutir diretamente."
+  }
+}
