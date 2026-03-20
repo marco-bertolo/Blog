@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   ArrowUpRight,
@@ -13,7 +13,7 @@ import {
   MapPin,
   Menu,
   NotebookPen,
-  Phone,
+  X,
 } from 'lucide-react';
 import './styles/global.css';
 import './i18n';
@@ -25,8 +25,12 @@ const languages = [
   { value: 'fr', label: 'FR' },
 ];
 
+const NAV_SECTIONS = ['profile', 'experience', 'projects', 'contact'];
+
 function App() {
   const { t, i18n } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const metrics = t('hero.metrics', { returnObjects: true });
   const highlights = t('profile.highlights', { returnObjects: true });
   const experience = t('experience.items', { returnObjects: true });
@@ -35,9 +39,41 @@ function App() {
   const education = t('education.items', { returnObjects: true });
   const certificates = t('education.certificates', { returnObjects: true });
 
+  // Sync <html lang> with i18n language
+  useEffect(() => {
+    document.documentElement.lang = i18n.resolvedLanguage || i18n.language;
+    const handler = (lng) => { document.documentElement.lang = lng; };
+    i18n.on('languageChanged', handler);
+    return () => i18n.off('languageChanged', handler);
+  }, [i18n]);
+
+  // Close mobile menu on resize back to desktop
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 980px)');
+    const handler = (e) => { if (e.matches) setMenuOpen(false); };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  // Active section via IntersectionObserver
+  useEffect(() => {
+    const observers = [];
+    NAV_SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { rootMargin: '-40% 0px -55% 0px' }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   return (
     <div className="site-shell">
-      <header className="topbar">
+      <header className="topbar" data-menu-open={menuOpen || undefined}>
         <div className="container topbar-inner">
           <a className="brand" href="#top" aria-label="Marco Bértolo portfolio">
             <span className="brand-mark">MB</span>
@@ -48,28 +84,46 @@ function App() {
           </a>
 
           <nav className="nav-links" aria-label="Primary">
-            <a href="#profile">{t('nav.about')}</a>
-            <a href="#experience">{t('nav.experience')}</a>
-            <a href="#projects">{t('nav.projects')}</a>
-            <a href="#contact">{t('nav.contact')}</a>
+            <a href="#profile" aria-current={activeSection === 'profile' ? 'true' : undefined}>{t('nav.about')}</a>
+            <a href="#experience" aria-current={activeSection === 'experience' ? 'true' : undefined}>{t('nav.experience')}</a>
+            <a href="#projects" aria-current={activeSection === 'projects' ? 'true' : undefined}>{t('nav.projects')}</a>
+            <a href="#contact" aria-current={activeSection === 'contact' ? 'true' : undefined}>{t('nav.contact')}</a>
           </nav>
 
-          <div className="lang-switcher">
-            <Languages size={14} />
-            <select
-              aria-label={t('nav.language')}
-              onChange={(event) => i18n.changeLanguage(event.target.value)}
-              value={i18n.resolvedLanguage || i18n.language}
+          <div className="topbar-end">
+            <div className="lang-switcher">
+              <Languages size={14} />
+              <select
+                aria-label={t('nav.language')}
+                onChange={(event) => i18n.changeLanguage(event.target.value)}
+                value={i18n.resolvedLanguage || i18n.language}
+              >
+                {languages.map((language) => (
+                  <option key={language.value} value={language.value}>
+                    {language.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button
+              className="mobile-menu-btn"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((o) => !o)}
             >
-              {languages.map((language) => (
-                <option key={language.value} value={language.value}>
-                  {language.label}
-                </option>
-              ))}
-            </select>
-            <Menu size={14} className="lang-switcher-menu" />
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
           </div>
         </div>
+
+        {menuOpen && (
+          <nav className="mobile-nav" aria-label="Mobile">
+            <a href="#profile" onClick={() => setMenuOpen(false)} aria-current={activeSection === 'profile' ? 'true' : undefined}>{t('nav.about')}</a>
+            <a href="#experience" onClick={() => setMenuOpen(false)} aria-current={activeSection === 'experience' ? 'true' : undefined}>{t('nav.experience')}</a>
+            <a href="#projects" onClick={() => setMenuOpen(false)} aria-current={activeSection === 'projects' ? 'true' : undefined}>{t('nav.projects')}</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)} aria-current={activeSection === 'contact' ? 'true' : undefined}>{t('nav.contact')}</a>
+          </nav>
+        )}
       </header>
 
       <main>
@@ -291,7 +345,7 @@ function App() {
           <div>
             <p className="eyebrow">{t('footer.eyebrow')}</p>
             <h2>{t('footer.title')}</h2>
-            <p style={{margintop: 100 + 'rem'}} className="footer-copy">{t('footer.description')}</p>
+            <p className="footer-copy">{t('footer.description')}</p>
           </div>
 
           <div className="contact-panel">
@@ -299,15 +353,15 @@ function App() {
               <Mail size={16} />
               marcobertolo2005@outlook.pt
             </a>
-            <a href="https://www.instagram.com/marco._bertolo_05/">
+            <a href="https://www.instagram.com/marco._bertolo_05/" target="_blank" rel="noreferrer">
               <Instagram size={16} />
               Instagram
             </a>
-            <a href="https://www.facebook.com/profile.php?id=100010367228371">
+            <a href="https://www.facebook.com/profile.php?id=100010367228371" target="_blank" rel="noreferrer">
               <Facebook size={16} />
               Facebook
             </a>
-            <a href="https://github.com/MGTEDITS">
+            <a href="https://github.com/MGTEDITS" target="_blank" rel="noreferrer">
               <Github size={16} />
               Github
             </a>

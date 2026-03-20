@@ -5,7 +5,6 @@ import { Check } from 'lucide-react';
 const ToolCard = ({ tool }) => {
   const cardRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -28,7 +27,6 @@ const ToolCard = ({ tool }) => {
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     setPosition({ x: 0, y: 0 });
   };
 
@@ -37,7 +35,6 @@ const ToolCard = ({ tool }) => {
       ref={cardRef}
       className="card spotlight-card"
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{
         ...styles.card,
